@@ -1,5 +1,3 @@
-//TO-DO: Integroi listan koko sortOptions-juttuun ja myöhemmin sivun valintaan.
-
 import { createSelector } from "reselect"
 
 const getDrinks = state => state.drinks
@@ -42,6 +40,9 @@ export const orderDrinks = createSelector(
                 break
             case "size":
                 drinks = drinks.sort((a, b) => b.size - a.size)
+                break
+            case "id":
+                drinks = drinks.sort((a, b) => b.id - a.id)
                 break
             default:
                 break

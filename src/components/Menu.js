@@ -27,6 +27,7 @@ const OrderByButtons = () => {
             <button onClick={() => dispatch(setSortMethod("pple"))}>price per litre of pure ethanol</button>
             <button onClick={() => dispatch(setSortMethod("ppl"))}>price per litre</button>
             <button onClick={() => dispatch(setSortMethod("size"))}>size</button>
+            <button onClick={() => dispatch(setSortMethod("id"))}>id</button>
         </div>
     )
 }

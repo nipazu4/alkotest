@@ -5,6 +5,7 @@ import { orderDrinks } from "../selectors/drinkSelector"
 const Drink = ({ drink }) => {
     return (
         <li>
+            <div>id: {drink.id}</div>
             <div>name: {drink.name}</div>
             <div>price: {drink.price}€</div>
             <div>alcohol: {drink.alcohol}%</div>
