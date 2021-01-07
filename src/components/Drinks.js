@@ -8,7 +8,9 @@ const Drink = ({ drink }) => {
             <div>name: {drink.name}</div>
             <div>price: {drink.price}€</div>
             <div>alcohol: {drink.alcohol}%</div>
-            <div>price per L of ethanol: {drink.priceperethanolL}€</div>
+            <div>volume: {drink.size} L</div>
+            <div>price per L of ethanol: {drink.priceperethanolL}{isNaN(drink.priceperethanolL) ? "":"€"}</div>
+            <div>price per L: {drink.priceperL}€</div>
             <br/>
         </li>
     )
@@ -17,13 +19,9 @@ const Drink = ({ drink }) => {
 const Drinks = () => {
     //const drinks = useSelector(state => state.drinks)
     const drinks = useSelector(orderDrinks)
-    const listSize = useSelector(state => state.listSize)
-    console.log(`list size is ${listSize}`)
-    console.log(`drinks: ${drinks.length}`)
-
-    const drinksToShow = drinks
-        .filter(d => d.priceperethanolL !== 0)
-        .slice(0, listSize)
+    //const listSize = useSelector(state => state.listSize)
+    //console.log(`list size is ${listSize}`)
+    //console.log(`drinks: ${drinks.length}`)
 
     return (
         <ul>

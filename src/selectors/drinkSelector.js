@@ -1,3 +1,5 @@
+//TO-DO: Integroi listan koko sortOptions-juttuun ja myöhemmin sivun valintaan.
+
 import { createSelector } from "reselect"
 
 const getDrinks = state => state.drinks
@@ -7,8 +9,9 @@ const getListSize = state => state.listSize
 export const orderDrinks = createSelector(
     [ getSortOptions, getDrinks, getListSize ],
     (sortOptions, drinks, listSize) => {
-        console.log(`sort options: ${JSON.stringify(sortOptions)}`)
+        //console.log(`sort options: ${JSON.stringify(sortOptions)}`)
 
+        //Ensin lajitellaan alkoholipitoisuuden perusteella.
         switch(sortOptions.toggleAlcoholic) {
             case true:
                 drinks = drinks.filter(d => d.alcohol !== 0)
@@ -20,15 +23,39 @@ export const orderDrinks = createSelector(
                 break
         }
 
+        //Seuraavana lajittelu valitulla tavalla
         switch(sortOptions.method) {
             case "price":
-                return drinks.sort((a, b) => a.price - b.price).slice(0, listSize)
+                drinks = drinks.sort((a, b) => b.price - a.price)
+                break
             case "alcohol":
-                return drinks.sort((a, b) => b.alcohol - a.alcohol).slice(0, listSize)
+                drinks = drinks.sort((a, b) => b.alcohol - a.alcohol)
+                break
             case "name":
-                return drinks.sort((a, b) => a.name.localeCompare(b.name)).slice(0, listSize)            
+                drinks = drinks.sort((a, b) => a.name.localeCompare(b.name)).reverse()
+                break
+            case "pple":
+                drinks = drinks.sort((a, b) => b.priceperethanolL - a.priceperethanolL)
+                break
+            case "ppl":
+                drinks = drinks.sort((a, b) => b.priceperL - a.priceperL)
+                break
+            case "size":
+                drinks = drinks.sort((a, b) => b.size - a.size)
+                break
             default:
-                return drinks.slice(0, listSize)
+                break
         }
+
+        //Käännetään lista tarvittaessa
+        if (sortOptions.toggleOrder) {
+            drinks = drinks.reverse()
+        }
+
+        //Lopuksi määrätään listan koko
+        drinks = drinks.slice(0, listSize)
+
+        //ja palautetaan lajiteltu lista juomista
+        return drinks
     }
 )

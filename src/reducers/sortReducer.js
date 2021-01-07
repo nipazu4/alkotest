@@ -1,59 +1,55 @@
-//TODO: toteuta reduceriin switch-case rakenne
-//muista action.data
-//sekä action.type
-
-
 const initialState = {
     method: "price",
     toggleAlcoholic: true,
+    toggleOrder: true,
 } //state.sortOptions rakenne
 
 const sortReducer = (state = initialState, action) => {
-    console.log(`state now: ${JSON.stringify(state)}`)
-    if(action.type.method) {
-        return {
-            ...state,
-            method: action.type.method.toLowerCase()
-        }
-    } else if (action.type.toggleAlcoholic) {
-        //console.log(`alcohol toggled`)
-        switch(state.toggleAlcoholic) {
-            case true:
-                //console.log("alcoholic sort is on")
-                return {
-                    ...state,
-                    toggleAlcoholic: false,
-                }
-            case false:
-                //console.log("alcoholic sort is off")
-                return {
-                    ...state,
-                    toggleAlcoholic: true,
-                }
-            default:
-                //console.log("alcoholic sort default option")
-                return state
-        }
-    } else {
-        return state
+    //console.log(`state now: ${JSON.stringify(state)}`)
+
+    switch(action.type) {
+        case "method":
+            //console.log(`method: ${action.data}`)
+            return {
+                ...state,
+                method: action.data.toLowerCase()
+            }
+        case "toggleAlcoholic":
+            //console.log(`state.toggleAlcoholic: ${state.toggleAlcoholic}`)
+            return {
+                ...state,
+                toggleAlcoholic: !state.toggleAlcoholic
+            }
+        case "toggleOrder":
+            //console.log(`state.toggleOrder: ${state.toggleOrder ? "asc":"desc"}`) //asc=true, desc=false
+            return {
+                ...state,
+                toggleOrder: !state.toggleOrder
+            }
+        default:
+            return state
     }
 }
 
 export const setSortMethod = (method) => {
     //console.log(`method:${method}`)
     return {
-        type: {
-            method: method
-        }
+        type: "method",
+        data: method
     }
 }
 
 export const toggleAlcoholic = () => {
     //console.log(`alcohol toggled`)
     return {
-        type: {
-            toggleAlcoholic: true
-        }
+        type: "toggleAlcoholic"
+    }
+}
+
+export const toggleOrder = () => {
+    //console.log(`order toggled`)
+    return {
+        type: "toggleOrder"
     }
 }
 

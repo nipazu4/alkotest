@@ -13,8 +13,8 @@ function App() {
     useEffect(() => {
         dispatch(initializeDrinks())
         dispatch(setListSize(25))
-        dispatch(setSortMethod("alcohol"))
-    }, [])
+        dispatch(setSortMethod("pple"))
+    }, [dispatch])
 
     return (
         <div>

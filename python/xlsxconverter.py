@@ -21,12 +21,12 @@ for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
     if row[3]:
         volume = row[3].strip(" l").replace(",",".")
         ppL = 0
-        ppeL = 0
+        ppLe = "approaches infinity" #vanha: ppLe = 0
 
         if float(volume) != 0:
             ppL = round(float(row[4])/float(volume), 2)
             if float(row[21]) != 0:
-                ppeL = round(float(row[4])*100/(float(volume)*float(row[21])), 2)
+                ppLe = round(float(row[4])*100/(float(volume)*float(row[21])), 2)
 
         drink = { 
             "id": row[0],
@@ -37,7 +37,7 @@ for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
             "type": row[8],
             "alcohol": float(row[21]),
             "priceperL": ppL,
-            "priceperethanolL": ppeL
+            "priceperethanolL": ppLe
         }
         data["drinks"].append(drink)
 

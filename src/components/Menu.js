@@ -1,5 +1,5 @@
 import { setListSize } from "../reducers/listSizeReducer"
-import { setSortMethod, toggleAlcoholic } from "../reducers/sortReducer"
+import { setSortMethod, toggleAlcoholic, toggleOrder } from "../reducers/sortReducer"
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -24,6 +24,9 @@ const OrderByButtons = () => {
             <button onClick={() => dispatch(setSortMethod("price"))}>price</button>
             <button onClick={() => dispatch(setSortMethod("name"))}>name</button>
             <button onClick={() => dispatch(setSortMethod("alcohol"))}>alcohol content</button>
+            <button onClick={() => dispatch(setSortMethod("pple"))}>price per litre of pure ethanol</button>
+            <button onClick={() => dispatch(setSortMethod("ppl"))}>price per litre</button>
+            <button onClick={() => dispatch(setSortMethod("size"))}>size</button>
         </div>
     )
 }
@@ -39,12 +42,24 @@ const ToggleAlcohol = () => {
     )
 }
 
+const ToggleOrder = () => {
+    const dispatch = useDispatch()
+    const orderDirection = useSelector(state => state.sortOptions.toggleOrder) //asc=true, desc=false
+    return (
+        <div>
+            toggle order: {orderDirection ? "ascending":"descending"}
+            <button onClick={() => dispatch(toggleOrder())}>toggle sorting order</button>
+        </div>
+    )
+}
+
 const Menu = () => {
     return (
         <div>
             <ListSizeButtons />
             <OrderByButtons />
             <ToggleAlcohol />
+            <ToggleOrder />
         </div>
     )
 }

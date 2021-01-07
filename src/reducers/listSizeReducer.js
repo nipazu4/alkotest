@@ -9,7 +9,7 @@ const listSizeReducer = (state = 5, action) => {
 }
 
 export const setListSize = (listSize) => {
-    console.log(listSize)
+    //console.log(listSize)
     return {
         type: "SET_LIST_SIZE",
         data: listSize

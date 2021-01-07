@@ -1,4 +1,4 @@
-import drinkService from "../services/drinks"
+import { getAll } from "../services/drinks"
 
 const drinkReducer = (state = [], action) => {
     //console.log("action made")
@@ -12,7 +12,7 @@ const drinkReducer = (state = [], action) => {
 
 export const initializeDrinks = () => {
     return async dispatch => { 
-        const drinks = await drinkService.getAll()
+        const drinks = await getAll()
         console.log(`drinks: ${drinks.length}`)
         dispatch({
             type: "INIT_DRINKS",
