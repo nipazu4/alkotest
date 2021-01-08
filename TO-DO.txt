@@ -1,5 +1,6 @@
 Python:
 Tee toimiva backend
+Hae tiedot automaattisesti päivittäin
 Integroi jokin tietokanta, esim mongoDB?
 
 drinkSelector.js:
