@@ -2,43 +2,39 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { orderDrinks } from "../selectors/drinkSelector"
 
-const Drink = ({ drink }) => {
+const Item = ({ item }) => {
     return (
         <tr>
             <td>
                 <img
-                    src={drink.imgUrl}
-                    alt={drink.name}
+                    src={item.imgUrl}
+                    alt={item.name}
                     crossOrigin="anonymous"
                 />
             </td>
             <td>
-                <div>id: {drink.id}</div>
-                <div>name: {drink.name}</div>
-                <div>price: {drink.price}€</div>
-                <div>alcohol: {drink.alcohol}%</div>
-                <div>manufacturer: {drink.manufacturer}</div>
-                <div>volume: {drink.size} L</div>
-                <div>price per L of ethanol: {drink.priceperethanolL}{isNaN(drink.priceperethanolL) ? "":"€"}</div>
-                <a href={drink.url} rel="noreferrer" target="_blank">Alko</a>
+                <div>id: {item.id}</div>
+                <div>name: {item.name}</div>
+                <div>price: {item.price}€</div>
+                <div>alcohol: {item.alcohol}%</div>
+                <div>manufacturer: {item.manufacturer}</div>
+                <div>volume: {item.size} L</div>
+                <div>price per L of ethanol: {item.priceperethanolL}{isNaN(item.priceperethanolL) ? "":"€"}</div>
+                <a href={item.url} rel="noreferrer" target="_blank">Alko</a>
+                <div>type: {item.type}</div>
             </td>
         </tr>
     )
 }
 
-const Drinks = () => {
-    //const drinks = useSelector(state => state.drinks)
+const Items = () => {
     const drinks = useSelector(orderDrinks)
-    //const listSize = useSelector(state => state.listSize)
-    //console.log(`list size is ${listSize}`)
-    //console.log(`drinks: ${drinks.length}`)
-
     return (
         <table>
             <tbody>
                 {drinks.map(d => 
-                    <Drink 
-                        drink={d}
+                    <Item 
+                        item={d}
                         key={d.id}
                     />  
                 )}
@@ -47,4 +43,4 @@ const Drinks = () => {
     )
 }
 
-export default Drinks
+export default Items

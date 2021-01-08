@@ -12,3 +12,4 @@ Näytettävien juomatyyppien valinta
 
 ???
 Lisää juomien ja ei-juomien valitsin
+    Toteuta näytettävät lajitteluvaihtoehdot
