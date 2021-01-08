@@ -9,4 +9,5 @@ valitse metodi suoraan syötetystä merkkijonosta (universaali valitsin)
 Menu.js:
 Näytettävien juomatyyppien valinta
 
-Luo uusi komponentti, joka lataa lisää juomia
+Drinks.js:
+Tallenna näytetyt kuvat välimuistiin

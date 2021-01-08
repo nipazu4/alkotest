@@ -7,7 +7,7 @@ const Drink = ({ drink }) => {
         <li>
             <div>id: {drink.id}</div>
             <div>name: {drink.name}</div>
-            <img src={drink.imgUrl} />
+            <img src={drink.imgUrl} alt={drink.name}/>
             <div>price: {drink.price}€</div>
             <div>alcohol: {drink.alcohol}%</div>
             <div>manufacturer: {drink.manufacturer}</div>
