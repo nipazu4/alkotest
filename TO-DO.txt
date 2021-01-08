@@ -1,7 +1,8 @@
 Python:
 Tee toimiva backend
-Hae tiedot automaattisesti päivittäin
-Integroi jokin tietokanta, esim mongoDB?
+    Hae tiedot automaattisesti päivittäin
+    Integroi jokin tietokanta, esim mongoDB?
+Hae ei-juomien kuvat
 
 drinkSelector.js:
 TO-DO: Integroi listan koon muuttaminen sortOptions-juttuun ja myöhemmin sivun valintaan.
