@@ -9,6 +9,7 @@ filename_out = "drinkdata.json"
 
 data = {}
 data["drinks"] = []
+data["nondrinks"] = []
 
 print("Downloading file")
 urlretrieve(table_url, filename_in)
@@ -27,17 +28,21 @@ def compute_img_url(name, id):
     url = "https://images.alko.fi/images/cs_srgb,f_auto,t_products/cdn/"+str(id)+"/"+name+".jpg"
     return url
 
-calc = 0
+drink_calc = 0
+non_drink_calc = 0
+row_count = ws.max_row-4
+
 for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
+    id = row[0]
+    name = row[1]
+    price = row[4]
+    url = "https://alko.fi/tuotteet/"+id
+
     if row[3]:
-        id = row[0]
-        name = row[1]
         manufacturer = row[2]
         volume = row[3].strip(" l").replace(",",".")
-        price = row[4]
         type = row[8]
         alcohol = float(row[21])
-        url = "https://alko.fi/tuotteet/"+id
         imgUrl = compute_img_url(name, id)
 
         ppL = 0
@@ -63,10 +68,22 @@ for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
         }
 
         data["drinks"].append(drink)
-        print("handling drink id "+str(id))
-        calc += 1
+        drink_calc += 1
+
+    else:
+        nondrink = {
+            "id": id,
+            "name": name,
+            "price": price,
+            "url": url
+        }
+        data["nondrinks"].append(nondrink)
+        non_drink_calc += 1
+
+    print(str(drink_calc+non_drink_calc)+"/"+str(row_count))
 
 with open(filename_out, "w") as outfile:
     json.dump(data, outfile)
 
-print(str(calc)+" drinks found")
+print(str(drink_calc)+" drinks found")
+print(str(non_drink_calc)+" non-drinks found")
