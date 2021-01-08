@@ -7,13 +7,15 @@ const Drink = ({ drink }) => {
         <li>
             <div>id: {drink.id}</div>
             <div>name: {drink.name}</div>
+            <img src={drink.imgUrl} />
             <div>price: {drink.price}€</div>
             <div>alcohol: {drink.alcohol}%</div>
             <div>manufacturer: {drink.manufacturer}</div>
             <div>volume: {drink.size} L</div>
             <div>price per L of ethanol: {drink.priceperethanolL}{isNaN(drink.priceperethanolL) ? "":"€"}</div>
             <a href={drink.url} rel="noreferrer" target="_blank">Alko</a>
-            <br/>
+            
+            <br/><br/><br/>
         </li>
     )
 }
