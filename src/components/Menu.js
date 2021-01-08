@@ -1,5 +1,5 @@
 import { setListSize } from "../reducers/listSizeReducer"
-import { setSortMethod, toggleAlcoholic, toggleOrder } from "../reducers/sortReducer"
+import { filterSearch, setSortMethod, toggleAlcoholic, toggleOrder } from "../reducers/sortReducer"
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -54,6 +54,23 @@ const ToggleOrder = () => {
     )
 }
 
+const SearchBar = () => {
+    const dispatch = useDispatch()
+
+    const handleSearchChange = (event) => {
+        event.preventDefault()
+        //console.log(`search: ${event.target.value}`)
+        dispatch(filterSearch(event.target.value))
+    }
+
+    return (
+        <div>
+            search 
+            <input type="text" onChange={(e) => handleSearchChange(e)}></input>
+        </div>
+    )
+}
+
 const Menu = () => {
     return (
         <div>
@@ -61,6 +78,7 @@ const Menu = () => {
             <OrderByButtons />
             <ToggleAlcohol />
             <ToggleOrder />
+            <SearchBar />
         </div>
     )
 }

@@ -2,6 +2,7 @@ const initialState = {
     method: "price",
     toggleAlcoholic: true,
     toggleOrder: true,
+    searchFilter: "",
 } //state.sortOptions rakenne
 
 const sortReducer = (state = initialState, action) => {
@@ -25,6 +26,12 @@ const sortReducer = (state = initialState, action) => {
             return {
                 ...state,
                 toggleOrder: !state.toggleOrder
+            }
+        case "filterSearch":
+            //console.log(`filter now: ${state.searchFilter}`)
+            return {
+                ...state,
+                searchFilter: action.data
             }
         default:
             return state
@@ -50,6 +57,13 @@ export const toggleOrder = () => {
     //console.log(`order toggled`)
     return {
         type: "toggleOrder"
+    }
+}
+
+export const filterSearch = (text) => {
+    return {
+        type: "filterSearch",
+        data: text
     }
 }
 

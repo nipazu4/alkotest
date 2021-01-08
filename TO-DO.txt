@@ -1,7 +1,11 @@
-Drinks.js:
+Python:
 Hae kuva alkon sivulta
 vinkki: ...<link itemprop="image" />...
 
 drinkSelector.js:
 TO-DO: Integroi listan koon muuttaminen sortOptions-juttuun ja myöhemmin sivun valintaan.
 valitse metodi suoraan syötetystä merkkijonosta (universaali valitsin)
+
+Menu.js:
+Haku nimen perusteella
+Näytettävien juomatyyppien valinta
