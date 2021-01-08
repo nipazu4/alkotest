@@ -1,4 +1,4 @@
-import { initializeDrinks } from "./reducers/itemReducer"
+import { initializeItems } from "./reducers/itemReducer"
 import { setListSize } from "./reducers/listSizeReducer"
 import { setSortMethod } from "./reducers/sortReducer"
 import { useDispatch } from "react-redux"
@@ -12,7 +12,7 @@ function App() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(initializeDrinks())
+        dispatch(initializeItems())
         dispatch(setListSize(25))
         dispatch(setSortMethod("pple"))
     }, [dispatch])

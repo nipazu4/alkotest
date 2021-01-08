@@ -5,7 +5,7 @@ const initialState = {
     nondrinks: []
 }
 
-const drinkReducer = (state = initialState, action) => {
+const itemReducer = (state = initialState, action) => {
     //console.log("action made")
     switch(action.type) {
         case "INIT_ITEMS":
@@ -15,7 +15,7 @@ const drinkReducer = (state = initialState, action) => {
     }
 }
 
-export const initializeDrinks = () => {
+export const initializeItems = () => {
     return async dispatch => { 
         const drinks = await getAllDrinks()
         console.log(`drinks: ${drinks.length}`)
@@ -33,4 +33,4 @@ export const initializeDrinks = () => {
     }
 }
 
-export default drinkReducer
+export default itemReducer
