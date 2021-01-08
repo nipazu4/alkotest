@@ -6,7 +6,11 @@ const Drink = ({ drink }) => {
     return (
         <tr>
             <td>
-                <img src={drink.imgUrl} alt={drink.name}/>
+                <img
+                    src={drink.imgUrl}
+                    alt={drink.name}
+                    crossOrigin="anonymous"
+                />
             </td>
             <td>
                 <div>id: {drink.id}</div>
