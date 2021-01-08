@@ -9,9 +9,10 @@ const Drink = ({ drink }) => {
             <div>name: {drink.name}</div>
             <div>price: {drink.price}€</div>
             <div>alcohol: {drink.alcohol}%</div>
+            <div>manufacturer: {drink.manufacturer}</div>
             <div>volume: {drink.size} L</div>
             <div>price per L of ethanol: {drink.priceperethanolL}{isNaN(drink.priceperethanolL) ? "":"€"}</div>
-            <div>price per L: {drink.priceperL}€</div>
+            <a href={drink.url} rel="noreferrer" target="_blank">Alko</a>
             <br/>
         </li>
     )

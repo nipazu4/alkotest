@@ -19,7 +19,14 @@ ws = wb["Alkon Hinnasto Tekstitiedostona"]
 
 for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
     if row[3]:
+        id = row[0]
+        name = row[1]
+        manufacturer = row[2]
         volume = row[3].strip(" l").replace(",",".")
+        price = row[4]
+        type = row[8]
+        alcohol = float(row[21])
+
         ppL = 0
         ppLe = "approaches infinity" #vanha: ppLe = 0
 
@@ -29,15 +36,16 @@ for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
                 ppLe = round(float(row[4])*100/(float(volume)*float(row[21])), 2)
 
         drink = { 
-            "id": row[0],
-            "name": row[1],
-            "manufacturer": row[2],
+            "id": id,
+            "name": name,
+            "manufacturer": manufacturer,
             "size": volume,
-            "price": row[4],
-            "type": row[8],
-            "alcohol": float(row[21]),
+            "price": price,
+            "type": type,
+            "alcohol": alcohol,
             "priceperL": ppL,
-            "priceperethanolL": ppLe
+            "priceperethanolL": ppLe,
+            "url": "https://alko.fi/tuotteet/"+id
         }
         data["drinks"].append(drink)
 
