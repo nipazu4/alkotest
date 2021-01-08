@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 import Drinks from "./components/Drinks"
 import Menu from "./components/Menu"
+import LoadMoreDrinks from "./components/LoadMoreDrinks";
 
 function App() {
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ function App() {
         <div>
             <Menu />
             <Drinks />
+            <LoadMoreDrinks />
         </div>
     )
 }

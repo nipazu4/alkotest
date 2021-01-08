@@ -37,8 +37,8 @@ const ToggleAlcohol = () => {
     const isAlcoholic = useSelector(state => state.sortOptions.toggleAlcoholic)
     return (
         <div>
-            toggle alcoholic drinks:
-            <button onClick={() => dispatch(toggleAlcoholic())}>alcohol? {isAlcoholic ? "yes":"no"}</button>
+            alcohol? 
+            <button onClick={() => dispatch(toggleAlcoholic())}>{isAlcoholic ? "yes":"no"}</button>
         </div>
     )
 }
@@ -48,8 +48,8 @@ const ToggleOrder = () => {
     const orderDirection = useSelector(state => state.sortOptions.toggleOrder) //asc=true, desc=false
     return (
         <div>
-            toggle order: {orderDirection ? "ascending":"descending"}
-            <button onClick={() => dispatch(toggleOrder())}>toggle sorting order</button>
+            order: {orderDirection ? "ascending":"descending"}
+            <button onClick={() => dispatch(toggleOrder())}>toggle</button>
         </div>
     )
 }
