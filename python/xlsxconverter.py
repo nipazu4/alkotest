@@ -35,12 +35,12 @@ row_count = ws.max_row-4
 for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
     id = row[0]
     name = row[1]
-    price = row[4]
+    price = float(row[4])
     url = "https://alko.fi/tuotteet/"+id
 
-    if row[3]:
+    if row[3]: #jos tilavuus on määritelty
         manufacturer = row[2]
-        volume = row[3].strip(" l").replace(",",".")
+        volume = float(row[3].strip(" l").replace(",","."))
         type = row[8]
         alcohol = float(row[21])
         imgUrl = compute_img_url(name, id)
@@ -48,10 +48,10 @@ for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
         ppL = 0
         ppLe = "approaches infinity"
 
-        if float(volume) != 0:
-            ppL = round(float(price)/float(volume), 2)
-            if float(alcohol) != 0:
-                ppLe = round(float(price)*100/(float(volume)*float(alcohol)), 2)
+        if volume != 0:
+            ppL = round(price/volume, 2)
+            if alcohol != 0:
+                ppLe = round(price*100/(volume*alcohol), 2)
 
         drink = { 
             "id": id,

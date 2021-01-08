@@ -8,7 +8,7 @@ import sortReducer from './reducers/sortReducer'
 
 const reducer = combineReducers({
     listSize: listSizeReducer,
-    drinks: drinkReducer,
+    items: drinkReducer,
     sortOptions: sortReducer,
 })
 
