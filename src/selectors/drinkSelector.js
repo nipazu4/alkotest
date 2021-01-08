@@ -1,6 +1,6 @@
 import { createSelector } from "reselect"
 
-const getDrinks = state => state.items.nondrinks
+const getDrinks = state => state.items.drinks
 const getSortOptions = state => state.sortOptions
 const getListSize = state => state.listSize
 

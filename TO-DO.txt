@@ -2,7 +2,6 @@ Python:
 Tee toimiva backend
     Hae tiedot automaattisesti päivittäin
     Integroi jokin tietokanta, esim mongoDB?
-Hae ei-juomien kuvat
 
 drinkSelector.js:
 TO-DO: Integroi listan koon muuttaminen sortOptions-juttuun ja myöhemmin sivun valintaan.
@@ -10,3 +9,6 @@ valitse metodi suoraan syötetystä merkkijonosta (universaali valitsin)
 
 Menu.js:
 Näytettävien juomatyyppien valinta
+
+???
+Lisää juomien ja ei-juomien valitsin
