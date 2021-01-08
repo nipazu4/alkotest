@@ -1,7 +1,8 @@
+import React from "react"
 import { setListSize } from "../reducers/listSizeReducer"
 import { filterSearch, setSortMethod, toggleAlcoholic, toggleOrder } from "../reducers/sortReducer"
-
 import { useDispatch, useSelector } from "react-redux"
+import Select from "react-select"
 
 const ListSizeButtons = () => {
     const dispatch = useDispatch()
@@ -18,16 +19,19 @@ const ListSizeButtons = () => {
 
 const OrderByButtons = () => {
     const dispatch = useDispatch()
+    const options = [
+        { value: "name", label: "name" },
+        { value: "price", label: "price" },
+        { value: "alcohol", label: "alcohol content" },
+        { value: "pple", label: "price per litre of pure ethanol" },
+        { value: "ppl", label: "price per litre" },
+        { value: "size", label: "size" },
+        { value: "id", label: "id" },
+    ]
     return (
         <div>
             order by:
-            <button onClick={() => dispatch(setSortMethod("price"))}>price</button>
-            <button onClick={() => dispatch(setSortMethod("name"))}>name</button>
-            <button onClick={() => dispatch(setSortMethod("alcohol"))}>alcohol content</button>
-            <button onClick={() => dispatch(setSortMethod("pple"))}>price per litre of pure ethanol</button>
-            <button onClick={() => dispatch(setSortMethod("ppl"))}>price per litre</button>
-            <button onClick={() => dispatch(setSortMethod("size"))}>size</button>
-            <button onClick={() => dispatch(setSortMethod("id"))}>id</button>
+            <Select options={options} onChange={(option) => dispatch(setSortMethod(option.value))} />
         </div>
     )
 }
