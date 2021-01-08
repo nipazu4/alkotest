@@ -76,8 +76,8 @@ const Menu = () => {
         <div>
             <ListSizeButtons />
             <OrderByButtons />
-            <ToggleAlcohol />
             <ToggleOrder />
+            <ToggleAlcohol />
             <SearchBar />
         </div>
     )
