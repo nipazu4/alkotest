@@ -1,4 +1,4 @@
-import { initializeDrinks } from "./reducers/drinkReducer"
+import { initializeDrinks } from "./reducers/itemReducer"
 import { setListSize } from "./reducers/listSizeReducer"
 import { setSortMethod } from "./reducers/sortReducer"
 import { useDispatch } from "react-redux"

@@ -37,13 +37,13 @@ for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
     name = row[1]
     price = float(row[4])
     url = "https://alko.fi/tuotteet/"+id
+    imgUrl = compute_img_url(name, id)
 
     if row[3]: #jos tilavuus on määritelty
         manufacturer = row[2]
         volume = float(row[3].strip(" l").replace(",","."))
         type = row[8]
         alcohol = float(row[21])
-        imgUrl = compute_img_url(name, id)
 
         ppL = 0
         ppLe = "approaches infinity"
@@ -75,7 +75,8 @@ for row in ws.iter_rows(min_row=5, max_col=22, values_only=True):
             "id": id,
             "name": name,
             "price": price,
-            "url": url
+            "url": url,
+            "imgUrl": imgUrl,
         }
         data["nondrinks"].append(nondrink)
         non_drink_calc += 1
