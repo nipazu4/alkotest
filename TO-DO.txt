@@ -9,7 +9,3 @@ valitse metodi suoraan syötetystä merkkijonosta (universaali valitsin)
 
 Menu.js:
 Näytettävien juomatyyppien valinta
-
-???
-Lisää juomien ja ei-juomien valitsin
-    Toteuta näytettävät lajitteluvaihtoehdot
