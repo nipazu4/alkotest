@@ -6,14 +6,13 @@ import { useEffect } from "react";
 
 import Drinks from "./components/Drinks"
 import Menu from "./components/Menu"
-import LoadMoreDrinks from "./components/LoadMoreDrinks";
 
 function App() {
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(initializeItems())
-        dispatch(setListSize(25))
+        dispatch(setListSize(20))
         dispatch(setSortMethod("pple"))
     }, [dispatch])
 
@@ -21,7 +20,6 @@ function App() {
         <div>
             <Menu />
             <Drinks />
-            <LoadMoreDrinks />
         </div>
     )
 }

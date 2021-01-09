@@ -59,6 +59,7 @@ export const orderDrinks = createSelector(
         //Lopuksi määrätään listan koko
         drinks = drinks.slice(0, listSize)
 
+
         //ja palautetaan lajiteltu lista juomista
         return drinks
     }
