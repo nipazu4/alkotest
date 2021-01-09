@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import Drinks from "./components/Drinks"
 import Menu from "./components/Menu"
 
-function App() {
+const App = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {

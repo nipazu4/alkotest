@@ -41,7 +41,7 @@ const BackToTopButton = () => {
     return (
         <button
             onClick={() => backToTop()}
-            style={{ position: "fixed", bottom: 0 }}
+            style={{ position: "fixed", bottom: 0, width: "100%", height: 40 }}
         >
             back to top
         </button>
@@ -55,7 +55,7 @@ const Items = () => {
     const sortedDrinks = useSelector(orderDrinks)
     const [showBackToTop, setShowBackToTop] = useState(false)
 
-    console.log(`showing ${sortedDrinks.length} drinks`)
+    //console.log(`showing ${sortedDrinks.length} drinks`)
 
     const showMoreDrinks = () => {
         dispatch(setListSize(currentListSize + 20))

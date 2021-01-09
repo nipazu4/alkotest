@@ -9,3 +9,6 @@ valitse metodi suoraan syötetystä merkkijonosta (universaali valitsin)
 
 Menu.js:
 Näytettävien juomatyyppien valinta
+
+???
+Takaisin ylös vievä nappi omaan tiedostoon
