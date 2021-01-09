@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 import Drinks from "./components/Drinks"
 import Menu from "./components/Menu"
+import ScrollToTop from "react-scroll-up"
 
 const App = () => {
     const dispatch = useDispatch()
@@ -20,6 +21,9 @@ const App = () => {
         <div>
             <Menu />
             <Drinks />
+            <ScrollToTop showUnder={160}>
+                back to top
+            </ScrollToTop>
         </div>
     )
 }
