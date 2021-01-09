@@ -1,4 +1,4 @@
-import { getAllDrinks, getAllNonDrinks } from "../services/drinks"
+import { getAllDrinks, getAllNonDrinks } from "../services/dataService"
 
 const initialState = {
     drinks: [],

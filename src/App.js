@@ -7,12 +7,14 @@ import { useEffect } from "react";
 import Drinks from "./components/Drinks"
 import Menu from "./components/Menu"
 import ScrollToTopButton from "./components/ScrollToTopButton"
+import { initializeDate } from "./reducers/dateReducer";
 
 const App = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(initializeItems())
+        dispatch(initializeDate())
         dispatch(setListSize(20))
         dispatch(setSortMethod("pple"))
     }, [dispatch])

@@ -1,5 +1,6 @@
 from urllib.request import urlretrieve
 from openpyxl import load_workbook
+from datetime import datetime
 import json
 import re
 
@@ -10,6 +11,7 @@ filename_out = "drinkdata.json"
 data = {}
 data["drinks"] = []
 data["nondrinks"] = []
+data["date"] = [datetime.isoformat(datetime.now())]
 
 print("Downloading file")
 urlretrieve(table_url, filename_in)

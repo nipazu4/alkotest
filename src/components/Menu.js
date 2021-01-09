@@ -83,9 +83,20 @@ const SearchBar = () => {
     )
 }
 
+const LastFetched = () => {
+    const dateString = useSelector(state => state.date)
+    const date = new Date(dateString)
+    return (
+        <div>
+            Information last fetched: {date.toLocaleString()} 
+        </div>
+    )
+}
+
 const Menu = () => {
     return (
         <div>
+            <LastFetched />
             <OrderByButtons />
             <ToggleOrder />
             <ToggleAlcohol />

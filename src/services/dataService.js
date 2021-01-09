@@ -11,3 +11,8 @@ export const getAllNonDrinks = async () => {
     const response = await axios.get(baseUrl+"nondrinks")
     return response.data
 }
+
+export const getLastFetched = async () => {
+    const response = await axios.get(baseUrl+"date")
+    return response.data
+}
