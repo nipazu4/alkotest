@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import InfiniteScroll from "react-infinite-scroll-component"
 import { orderDrinks } from "../selectors/drinkSelector"
@@ -29,37 +29,71 @@ const Drink = ({ drink }) => {
     )
 }
 
+const BackToTopButton = () => {
+    const backToTop = () => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        })
+    }
+
+    return (
+        <button
+            onClick={() => backToTop()}
+            style={{ position: "fixed", bottom: 0 }}
+        >
+            back to top
+        </button>
+    )
+}
+
 const Items = () => {
     const dispatch = useDispatch()
 
     const currentListSize = useSelector(state => state.listSize)
     const sortedDrinks = useSelector(orderDrinks)
+    const [showBackToTop, setShowBackToTop] = useState(false)
 
-    console.log(`drink list length: ${sortedDrinks.length}`)
     console.log(`showing ${sortedDrinks.length} drinks`)
 
     const showMoreDrinks = () => {
         dispatch(setListSize(currentListSize + 20))
     }
 
+    const checkPagePosition = () => {
+        //console.log(`current position: ${window.pageYOffset}`)
+        if(window.pageYOffset === 0) {
+            dispatch(setListSize(20))
+        } else if(window.pageYOffset > 3000 && showBackToTop === false) {
+            setShowBackToTop(true)
+        } else if(window.pageYOffset <= 3000 && showBackToTop === true) {
+            setShowBackToTop(false)
+        }
+    }
+
     return (
-        <InfiniteScroll
-            dataLength={sortedDrinks.length}
-            next={showMoreDrinks}
-            hasMore={true}
-            endMessage={<h1>this is the end</h1>}
-        >
-            <table>
-                <tbody>
-                    {sortedDrinks.map(d => 
-                        <Drink 
-                            drink={d}
-                            key={d.id}
-                        />  
-                    )}
-                </tbody>
-            </table>
-        </InfiniteScroll>
+        <div>
+            <InfiniteScroll
+                dataLength={sortedDrinks.length}
+                next={showMoreDrinks}
+                hasMore={true}
+                endMessage={<h1>this is the end</h1>}
+                onScroll={() => checkPagePosition()}
+            >
+                <table>
+                    <tbody>
+                        {sortedDrinks.map(d => 
+                            <Drink 
+                                drink={d}
+                                key={d.id}
+                            />  
+                        )}
+                    </tbody>
+                </table>
+            </InfiniteScroll>
+            {showBackToTop ? <BackToTopButton /> : <></>}
+        </div>
     )
 }
 
