@@ -6,7 +6,7 @@ import { setListSize } from "../reducers/listSizeReducer"
 
 const Drink = ({ drink }) => {
     return (
-        <tr style={{ backgroundColor:"lightblue"}}>
+        <tr>
             <td>
                 <img
                     src={drink.imgUrl}
@@ -40,8 +40,12 @@ const Items = () => {
         dispatch(setListSize(currentListSize + 20))
     }
 
+    const listStyle = {
+        marginBottom: "40px"
+    }
+
     return (
-        <div>
+        <div style={listStyle}>
             <InfiniteScroll
                 dataLength={sortedDrinks.length}
                 next={showMoreDrinks}

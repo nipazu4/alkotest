@@ -25,7 +25,7 @@ const OrderByButtons = () => {
     return (
         <div>
             order by:
-            <Select options={options} onChange={(option) => changeOrder(option)} />
+            <Select defaultValue={options.filter(o => o.value === "pple")} options={options} onChange={(option) => changeOrder(option)} />
         </div>
     )
 }
