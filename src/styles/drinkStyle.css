@@ -1,0 +1,21 @@
+#drinkList {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    width: 100%;
+
+    margin-bottom: 40px;
+}
+
+.drinkContainer {
+    background-color: wheat;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 5px;
+    overflow: auto;
+    width: 50%;
+}
+
+.drinkChildDiv {
+    float:left;
+}

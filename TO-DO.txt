@@ -1,10 +1,7 @@
-Python:
-backend
-    Hae tiedot automaattisesti päivittäin
-
-drinkSelector.js:
-TO-DO: Integroi listan koon muuttaminen sortOptions-juttuun ja myöhemmin sivun valintaan.
-valitse metodi suoraan syötetystä merkkijonosta (universaali valitsin)
-
 Menu.js:
 Näytettävien juomatyyppien valinta
+Jos alkoholittomat juomat ovat valittuna, peitä sopimattomat valinnat
+
+Yhden juoman näkymä
+
+css
