@@ -1,21 +1,45 @@
 #drinkList {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    width: 100%;
-
     margin-bottom: 40px;
 }
 
 .drinkContainer {
-    background-color: wheat;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background-color:bisque;
     padding: 15px;
-    margin: 15px;
+    margin: 15px auto;
     border-radius: 5px;
     overflow: auto;
     width: 50%;
 }
 
-.drinkChildDiv {
+.drinkImg {
     float:left;
+    height: 192px;
+    width: auto;
+    margin: 0px 10px;
+}
+
+.drinkTable {
+    flex-grow: 2;
+
+    margin: 0px 10px;
+    height: 192px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.drinkDescription {
+    align-self: flex-end;
+    flex-grow: 0;
+
+    float:right;
+    margin: 0px 10px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    height: 192px;
+    width: 20%;
 }

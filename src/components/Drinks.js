@@ -6,23 +6,38 @@ import { setListSize } from "../reducers/listSizeReducer"
 import "../styles/drinkStyle.css"
 
 const Drink = ({ drink }) => {
+    const bgColorStyle = {
+    }
+
+    /*switch(drink.type.toLowerCase()) {
+        case "oluet":
+            bgColorStyle.backgroundColor = "wheat"
+            break
+        case "punaviinit":
+            bgColorStyle.backgroundColor = "#b11226"
+            break
+        default:
+            bgColorStyle.backgroundColor = "whitesmoke"
+            break
+    }*/
+
     return (
-        <div className="drinkContainer">
-            <div className="drinkChildDiv">
+        <div className="drinkContainer" style={bgColorStyle}>
+            <div className="drinkChildDiv drinkImg">
                 <img
-                    className="drinkImg"
                     src={drink.imgUrl}
                     alt={drink.name}
                     crossOrigin="anonymous"
                 />
             </div>
-            <div className="drinkChildDiv">
-                <table className="drinkTable">
-                    <tbody>
+            <div className="drinkChildDiv drinkTable">
+                <table>
+                    <thead>
                         <tr>
-                            <td>name:</td>
-                            <td>{drink.name}</td>
+                            <th colSpan="2">{drink.name}</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>price:</td>
                             <td>{drink.price.toFixed(2)}€</td>
@@ -51,6 +66,9 @@ const Drink = ({ drink }) => {
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div className="drinkChildDiv drinkDescription">
+                {drink.description}
             </div>
         </div>
     )
