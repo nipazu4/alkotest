@@ -16,7 +16,8 @@ const ScrollToTopButton = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "dodgerblue",
+        backgroundColor: "#386292",
+        transitionDuration: '0.2s',
     }
 
     const spanStyle = {

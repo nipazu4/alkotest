@@ -8,39 +8,46 @@
     flex-direction: row;
     justify-content: space-between;
 
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.20);
     background-color: rgb(119, 187, 99);
-    padding: 15px;
-    margin: 15px auto;
-    border-radius: 5px;
+    margin: 30px auto;
     overflow: auto;
     width: 860px;
 }
 
 .drinkChildDiv {
-    height: auto;
-    margin: 0px 10px;
+    position: relative;
+    height:192px;
     padding: 10px;
+}
 
+.drinkChildDiv:not(:last-child)::after {
+    content: "";
+    width:0;
+    height:192px;
+    border-right: 1px solid rgb(184, 184, 184);
+
+    position:absolute;
+    top:10px;
+    right:0;
 }
 
 .drinkImg {
     flex-shrink: 0;
     width: 160px;
     background-color: white;
-    border-radius: 5px;
     overflow: hidden;
 }
 
 .drinkTable {
     flex-grow: 2;
-
     background-color: white;
-    border-radius: 5px;
 }
 
 table {
     height: 100%;
     width: 100%;
+    border-collapse: collapse;
 }
 
 th {
@@ -55,7 +62,6 @@ tr:nth-child(odd){
     flex-shrink: 0;
     min-height: 100%;
     background-color: white;
-    border-radius: 5px;
     width: 160px;
     text-align: center;
 }
