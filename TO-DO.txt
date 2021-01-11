@@ -1,6 +1,5 @@
 Menu.js:
 Näytettävien juomatyyppien valinta
-Jos alkoholittomat juomat ovat valittuna, peitä sopimattomat valinnat
 
 Yhden juoman näkymä
 
