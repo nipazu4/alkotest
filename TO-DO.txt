@@ -3,4 +3,5 @@ Näytettävien juomatyyppien valinta
 
 Yhden juoman näkymä
 
-css
+css:
+    menu
