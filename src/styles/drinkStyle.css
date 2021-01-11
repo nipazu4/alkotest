@@ -19,11 +19,12 @@
 .drinkChildDiv {
     height: auto;
     margin: 0px 10px;
+    padding: 10px;
+
 }
 
 .drinkImg {
     flex-shrink: 0;
-    padding: 10px 0;
     width: 160px;
     background-color: white;
     border-radius: 5px;
@@ -35,7 +36,19 @@
 
     background-color: white;
     border-radius: 5px;
-    
+}
+
+table {
+    height: 100%;
+    width: 100%;
+}
+
+th {
+    background-color: white;
+}
+
+tr:nth-child(odd){
+    background-color: whitesmoke;
 }
 
 .drinkDescription {

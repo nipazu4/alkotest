@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const baseUrl = "https://alko-react-app.herokuapp.com/api/"
+console.log(`url=${process.env.REACT_APP_BACKEND_URI}`)
+const baseUrl = process.env.REACT_APP_BACKEND_URI
 
 export const getAllDrinks = async () => {
     const response = await axios.get(baseUrl+"drinks")
