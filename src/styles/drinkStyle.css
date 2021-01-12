@@ -60,8 +60,20 @@ tr:nth-child(odd){
 
 .drinkDescription {
     flex-shrink: 0;
+    overflow-y: scroll;
     min-height: 100%;
     background-color: white;
     width: 160px;
     text-align: center;
+    padding-right: 5px;
+}
+
+.drinkChildDiv::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+    height:5px;
+}
+
+.drinkChildDiv::-webkit-scrollbar-thumb {
+    background-color:  rgb(184, 184, 184);
 }

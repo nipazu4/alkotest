@@ -1,0 +1,52 @@
+#menuContainer {
+    width: 860px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.20);
+}
+
+#menuContainer > div {
+    padding:10px;
+    width: 100%;
+    position: relative;
+}
+
+#menuContainer > div:not(:last-child):after {
+    content:"";
+    position: absolute;
+    left:10%;
+    bottom:0;
+    height: 80%;
+    border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.menuItem {
+    display: none;
+    height: 40px;
+}
+
+#lastFetched {
+    background-color: rgb(233, 206, 119);
+    text-align: center;
+}
+
+#searchInput {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 10px;
+}
+
+#searchInput:focus ~ .menuItem {
+    display: block;
+}
+
+#alcoholToggle button, #orderToggle button {
+    width: 100%;
+    height: 100%;
+    background-color: #386292;
+    border: none;
+    color: white;
+}

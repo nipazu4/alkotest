@@ -32,8 +32,10 @@ const Drink = ({ drink }) => {
             </div>
             <div className="drinkChildDiv drinkTable">
                 <table>
-                    <col style={{ width: "50%" }}/>
-                    <col style={{ width: "50%" }}/>
+                    <colgroup>
+                        <col style={{ width: "50%" }}/>
+                        <col style={{ width: "50%" }}/>
+                    </colgroup>
                     <thead>
                         <tr>
                             <th colSpan="2">{drink.name}</th>

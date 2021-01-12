@@ -3,6 +3,7 @@ import { filterSearch, setSortMethod, toggleAlcoholic, toggleOrder } from "../re
 import { useDispatch, useSelector } from "react-redux"
 import Select from "react-select"
 import { setListSize } from "../reducers/listSizeReducer"
+import "../styles/Menu.css"
 
 const OrderByButtons = () => {
     const dispatch = useDispatch()
@@ -23,12 +24,12 @@ const OrderByButtons = () => {
     }
 
     return (
-        <div>
-            order by:
+        <div id="orderDrinksBy" className="menuItem">
             <Select
-                defaultValue={options.filter(o => o.value === "pple")}
+                placeholder={"sort drinks by"}
                 options={options}
                 onChange={(option) => changeOrder(option)}
+                isSearchable={false}
             />
         </div>
     )
@@ -45,9 +46,8 @@ const ToggleAlcohol = () => {
     }
 
     return (
-        <div>
-            alcohol? 
-            <button onClick={() => toggleAlcohol()}>{isAlcoholic ? "yes":"no"}</button>
+        <div id="alcoholToggle" className="menuItem">
+            <button onClick={() => toggleAlcohol()}>showing {isAlcoholic ? "alcoholic":"non-alcoholic"}</button>
         </div>
     )
 }
@@ -63,9 +63,8 @@ const ToggleOrder = () => {
     }
 
     return (
-        <div>
-            order: {orderDirection ? "ascending":"descending"}
-            <button onClick={() => toggle()}>toggle</button>
+        <div id="orderToggle" className="menuItem">
+            <button onClick={() => toggle()}>order: {orderDirection ? "ascending":"descending"}</button>
         </div>
     )
 }
@@ -80,10 +79,13 @@ const SearchBar = () => {
     }
 
     return (
-        <div>
-            search 
-            <input type="text" onChange={(e) => handleSearchChange(e)}></input>
-        </div>
+        <input
+            id="searchInput"
+            className="menuItem"
+            type="text"
+            onChange={(e) => handleSearchChange(e)}
+            placeholder="search"
+        />
     )
 }
 
@@ -91,26 +93,25 @@ const LastFetched = () => {
     const dateString = useSelector(state => state.date)
     const date = new Date(dateString)
     return (
-        <div>
-            Information last fetched: {date.toLocaleString()} 
+        <div id="lastFetched" className="menuItem">
+            <div>
+                Information last fetched:
+            </div>
+            <div>
+                {date.toLocaleString()} 
+            </div>
         </div>
     )
 }
 
 const Menu = () => {
-    const menuStyle = {
-        backgroundColor:"white",
-        boxShadow: "0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.20)",
-        padding: "10px",
-    }
-
     return (
-        <div style={menuStyle}>
-            <LastFetched />
+        <div id="menuContainer">
+            <SearchBar />
             <OrderByButtons />
             <ToggleOrder />
             <ToggleAlcohol />
-            <SearchBar />
+            <LastFetched />
         </div>
     )
 }
