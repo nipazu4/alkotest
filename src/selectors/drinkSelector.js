@@ -10,7 +10,7 @@ export const orderDrinks = createSelector(
         //console.log(`sort options: ${JSON.stringify(sortOptions)}`)
 
         //Suodatetaan hakukentän tekstin perusteella
-        drinks = drinks.filter(d => d.name.toLowerCase().includes(sortOptions.searchFilter))
+        drinks = drinks.filter(d => d.name.toLowerCase().includes(sortOptions.searchFilter.toLowerCase()))
 
         //Suodatetaan alkoholipitoisuuden perusteella.
         switch(sortOptions.toggleAlcoholic) {
