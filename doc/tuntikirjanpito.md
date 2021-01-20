@@ -28,4 +28,6 @@
 |12.1.		|2		|css							|
 |13.1.		|3		|backendin optimointi			|
 |14.1.      |2      |dokumentaatio                  |
-|yhteensä	|56		|								|
+|19.1.      |4      |superalkon datan haku          |
+|20.1.      |3      |korjauksia                     |
+|yhteensä	|63 	|								|

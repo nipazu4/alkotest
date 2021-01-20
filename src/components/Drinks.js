@@ -6,28 +6,15 @@ import { setListSize } from "../reducers/listSizeReducer"
 import "../styles/drinkStyle.css"
 
 const Drink = ({ drink }) => {
-    const bgColorStyle = {
-    }
-
-    /*switch(drink.type.toLowerCase()) {
-        case "oluet":
-            bgColorStyle.backgroundColor = "wheat"
-            break
-        case "punaviinit":
-            bgColorStyle.backgroundColor = "#b11226"
-            break
-        default:
-            bgColorStyle.backgroundColor = "whitesmoke"
-            break
-    }*/
 
     return (
-        <div className="drinkContainer" style={bgColorStyle}>
+        <div className="drinkContainer">
             <div className="drinkChildDiv drinkImg">
                 <img
                     src={drink.imgUrl}
                     alt={drink.name}
                     crossOrigin="anonymous"
+                    loading="lazy"
                 />
             </div>
             <div className="drinkChildDiv drinkTable">
