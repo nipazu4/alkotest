@@ -35,6 +35,7 @@
 .drinkImg {
     flex-shrink: 0;
     width: 160px;
+    height: 192px;
     background-color: white;
     overflow: hidden;
 }

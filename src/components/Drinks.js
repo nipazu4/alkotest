@@ -13,8 +13,10 @@ const Drink = ({ drink }) => {
                 <img
                     src={drink.imgUrl}
                     alt={drink.name}
-                    crossOrigin="anonymous"
                     loading="lazy"
+                    height="192"
+                    width="160"
+
                 />
             </div>
             <div className="drinkChildDiv drinkTable">

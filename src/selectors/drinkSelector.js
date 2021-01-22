@@ -12,7 +12,7 @@ export const orderDrinks = createSelector(
         //Suodatetaan hakukentän tekstin perusteella
         drinks = drinks.filter(d => d.name.toLowerCase().includes(sortOptions.searchFilter.toLowerCase()))
 
-        //Suodatetaan alkoholipitoisuuden perusteella.
+        //Suodatetaan alkoholipitoisuuden perusteella
         switch(sortOptions.toggleAlcoholic) {
             case true:
                 drinks = drinks.filter(d => d.alcohol !== 0)

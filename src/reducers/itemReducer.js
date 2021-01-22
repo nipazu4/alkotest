@@ -15,12 +15,12 @@ const itemReducer = (state = initialState, action) => {
     }
 }
 
-export const initializeItems = () => {
+export const initializeItems = (store = "alko") => {
     return async dispatch => { 
-        const drinks = await getAllDrinks()
+        const drinks = await getAllDrinks(store)
         console.log(`drinks: ${drinks.length}`)
 
-        const nondrinks = await getAllNonDrinks()
+        const nondrinks = await getAllNonDrinks(store)
         console.log(`non-drinks: ${nondrinks.length}`)
 
         dispatch({

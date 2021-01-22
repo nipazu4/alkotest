@@ -11,9 +11,9 @@ const dateReducer = (state = initialState, action) => {
     }
 }
 
-export const initializeDate = () => {
+export const initializeDate = (store = "alko") => {
     return async dispatch => {
-        const lastFetched = await getLastFetched()
+        const lastFetched = await getLastFetched(store)
         console.log(`last fetched: ${JSON.stringify(lastFetched)}`)
 
         dispatch({
