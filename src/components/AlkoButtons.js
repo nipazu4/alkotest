@@ -14,10 +14,20 @@ const AlkoButtons = () => {
         flexDirection: "column"
     }
 
+    const alkoFunction = () => {
+        dispatch(initializeDate("alko"))
+        dispatch(initializeItems("alko"))
+    }
+
+    const superAlkoFunction = () => {
+        dispatch(initializeDate("superalko"))
+        dispatch(initializeItems("superalko"))
+    }
+
     return (
         <div style={alkoButtonBoxStyle}>
-            <button onClick={() => dispatch(initializeItems("alko"))}>Alko</button>
-            <button onClick={() => dispatch(initializeItems("superalko"))}>SuperAlko</button>
+            <button onClick={() => alkoFunction()}>Alko</button>
+            <button onClick={() => superAlkoFunction()}>SuperAlko</button>
         </div>
     )
 }
