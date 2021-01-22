@@ -72,31 +72,6 @@ const ToggleOrder = () => {
     )
 }
 
-const SearchBar = () => {
-    const dispatch = useDispatch()
-
-    const handleSearchChange = (event) => {
-        event.preventDefault()
-        //console.log(`search: ${event.target.value}`)
-        dispatch(filterSearch(event.target.value))
-    }
-
-    const searchStyle = {
-        height: "30px"
-    }
-
-    return (
-        <input
-            style={searchStyle}
-            id="searchInput"
-            className="menuItem"
-            type="text"
-            onChange={(e) => handleSearchChange(e)}
-            placeholder="search"
-        />
-    )
-}
-
 const LastFetched = () => {
     const dateString = useSelector(state => state.date)
     const date = new Date(dateString)
@@ -144,7 +119,7 @@ const AlkoButtons = () => {
 }
 
 const HamburgerContainer = (props) => {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
 
     const showWhenVisible = { display: visible ? "" : "none" }
 
@@ -173,14 +148,12 @@ const Menu = () => {
         <div id="menuContainer">
             <HamburgerContainer>
                 <AlkoButtons  />
-                <SearchBar />
                 <OrderByButtons />
                 <ToggleOrder />
                 <ToggleAlcohol />
                 <LastFetched />
             </HamburgerContainer>
-            
-        </div>
+        </div>        
     )
 }
 

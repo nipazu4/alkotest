@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import Drinks from "./components/Drinks"
 import Menu from "./components/Menu"
 import ScrollToTopButton from "./components/ScrollToTopButton"
-import Togglable from "./components/Togglable";
+import SearchBar from "./components/SearchBar"
 
 const App = () => {
     const dispatch = useDispatch()
@@ -22,9 +22,8 @@ const App = () => {
 
     return (
         <div>
-            <Togglable>
-                <Menu />
-            </Togglable>
+            <Menu />
+            <SearchBar />
             <Drinks />
             <ScrollToTopButton />
         </div>
