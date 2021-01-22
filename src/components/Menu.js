@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import { filterSearch, setSortMethod, toggleAlcoholic, toggleOrder } from "../reducers/sortReducer"
 import { useDispatch, useSelector } from "react-redux"
 import Select from "react-select"
 import { setListSize } from "../reducers/listSizeReducer"
 import "../styles/Menu.css"
+import { Divide as Hamburger } from "hamburger-react"
+import { initializeItems } from "../reducers/itemReducer"
+import { initializeDate } from "../reducers/dateReducer";
 
 const OrderByButtons = () => {
     const dispatch = useDispatch()
@@ -78,8 +81,13 @@ const SearchBar = () => {
         dispatch(filterSearch(event.target.value))
     }
 
+    const searchStyle = {
+        height: "30px"
+    }
+
     return (
         <input
+            style={searchStyle}
             id="searchInput"
             className="menuItem"
             type="text"
@@ -104,14 +112,74 @@ const LastFetched = () => {
     )
 }
 
+const AlkoButtons = () => {
+    const dispatch = useDispatch()
+    const alkoButtonBoxStyle = {
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+    }
+
+    const alkoButtonStyle = {
+        width: "100%",
+        height: "30px"
+    }
+
+    const alkoFunction = () => {
+        dispatch(initializeDate("alko"))
+        dispatch(initializeItems("alko"))
+    }
+
+    const superAlkoFunction = () => {
+        dispatch(initializeDate("superalko"))
+        dispatch(initializeItems("superalko"))
+    }
+
+    return (
+        <div style={alkoButtonBoxStyle}>
+            <button style={alkoButtonStyle} onClick={() => alkoFunction()}>Alko</button>
+            <button style={alkoButtonStyle} onClick={() => superAlkoFunction()}>SuperAlko</button>
+        </div>
+    )
+}
+
+const HamburgerContainer = (props) => {
+    const [visible, setVisible] = useState(true)
+
+    const showWhenVisible = { display: visible ? "" : "none" }
+
+    const toggleVisibility = () => {
+        setVisible(!visible)
+    }
+
+    return (
+        <div>
+            <Hamburger
+                toggled={visible}
+                toggle={toggleVisibility}
+                duration={0.2}
+                color="black"
+            />
+            <div style={showWhenVisible}>
+                {props.children}
+            </div>
+        </div>
+        
+    )
+}
+
 const Menu = () => {
     return (
         <div id="menuContainer">
-            <SearchBar />
-            <OrderByButtons />
-            <ToggleOrder />
-            <ToggleAlcohol />
-            <LastFetched />
+            <HamburgerContainer>
+                <AlkoButtons  />
+                <SearchBar />
+                <OrderByButtons />
+                <ToggleOrder />
+                <ToggleAlcohol />
+                <LastFetched />
+            </HamburgerContainer>
+            
         </div>
     )
 }

@@ -1,5 +1,10 @@
 #menuContainer {
-    width: 860px;
+    position: fixed;
+    left: 0;
+
+    width: 180px;
+    height: auto;
+
     margin: 0px auto;
     display: flex;
     flex-direction: column;

@@ -6,12 +6,13 @@ import { initializeDate } from "../reducers/dateReducer";
 const AlkoButtons = () => {
     const dispatch = useDispatch()
     const alkoButtonBoxStyle = {
-        position: "fixed",
-        top: "0",
-        left: "0",
         margin: "30px",
         display: "flex",
         flexDirection: "column"
+    }
+
+    const alkoButtonStyle = {
+        width: "150px",
     }
 
     const alkoFunction = () => {
@@ -26,8 +27,8 @@ const AlkoButtons = () => {
 
     return (
         <div style={alkoButtonBoxStyle}>
-            <button onClick={() => alkoFunction()}>Alko</button>
-            <button onClick={() => superAlkoFunction()}>SuperAlko</button>
+            <button style={alkoButtonStyle} onClick={() => alkoFunction()}>Alko</button>
+            <button style={alkoButtonStyle} onClick={() => superAlkoFunction()}>SuperAlko</button>
         </div>
     )
 }

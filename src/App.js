@@ -5,10 +5,10 @@ import { setSortMethod } from "./reducers/sortReducer"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react";
 
-import AlkoButtons from "./components/AlkoButtons"
 import Drinks from "./components/Drinks"
 import Menu from "./components/Menu"
 import ScrollToTopButton from "./components/ScrollToTopButton"
+import Togglable from "./components/Togglable";
 
 const App = () => {
     const dispatch = useDispatch()
@@ -22,8 +22,9 @@ const App = () => {
 
     return (
         <div>
-            <Menu />
-            <AlkoButtons  />
+            <Togglable>
+                <Menu />
+            </Togglable>
             <Drinks />
             <ScrollToTopButton />
         </div>
